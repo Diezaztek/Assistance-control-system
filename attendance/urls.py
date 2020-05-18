@@ -27,4 +27,5 @@ urlpatterns = [
     path('panel/', views.load_panel, name='panel'),
     path('edit/', views.edit_student, name='edit'),
     path('save/', views.save_student_changes, name='save_changes'),
+
 ]

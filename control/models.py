@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Shift(models.Model):
     week_day = models.CharField(max_length=10)
     start_hour = models.TimeField()
