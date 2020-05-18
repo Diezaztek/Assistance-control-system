@@ -1,0 +1,10 @@
+.search-form{
+  background-color: #dce0e3;/*#f8f9fa;*/
+  color: #495057;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.btn{
+  background-color: #343a40;
+}
