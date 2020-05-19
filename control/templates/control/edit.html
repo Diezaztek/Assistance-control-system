@@ -15,10 +15,17 @@ Administrar estudiantes
 <br>
 <h1>Administrar estudiantes</h1>
 <br>
-{% if error %}
-  <div class="alert alert-danger" role="alert">
-    {{error}}
-  </div>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <strong>¡Santo guacamole!</strong> {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <br>
+  {% endfor %}
 {% endif %}
 
 <div class="container register-form search-form">
@@ -36,7 +43,7 @@ Administrar estudiantes
               </div>
             </div>
           </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-dark">Buscar</button>
         </div>
     </form>
     <br>
@@ -116,7 +123,7 @@ Administrar estudiantes
                   </div>
                 </div>
               </div>
-                <button type="submit" class="btn btn-primary">Editar</button>
+                <button type="submit" class="btn btn-dark">Editar</button>
             </div>
         </form>
         <br>
@@ -192,7 +199,7 @@ Administrar estudiantes
                   </div>
                 </div>
               </div>
-                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="submit" class="btn btn-dark">Crear</button>
             </div>
         </form>
         <br>

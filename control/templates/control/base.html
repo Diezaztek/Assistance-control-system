@@ -37,9 +37,9 @@
 
 
       <div class="list-group list-group-flush">
-        <a href="{% url 'panel' %}" class="list-group-item list-group-item-action bg-light">Asistencia manual</a>
+        <a href="{% url 'admin_check' %}" class="list-group-item list-group-item-action bg-light">Asistencia manual</a>
         <a href="{% url 'edit' %}" class="list-group-item list-group-item-action bg-light">Administrar estudiantes</a>
-        <a href="" class="list-group-item list-group-item-action bg-light">Ver progreso estudiantes</a>
+        <a href="{% url 'summary' %}" class="list-group-item list-group-item-action bg-light">Ver progreso estudiantes</a>
       </div>
 
       <br>
@@ -58,7 +58,7 @@
       <!--nav-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="navbar-toggler" data-toggle="collapse">
-          <button class="btn btn-primary" id="menu-toggle">
+          <button class="btn btn-dark" id="menu-toggle">
             <span class="navbar-toggler-icon burger-menu"></span>
           </button>
         </div>

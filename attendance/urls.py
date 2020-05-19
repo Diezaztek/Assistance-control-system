@@ -18,14 +18,23 @@ from django.urls import path
 from control import views
 
 urlpatterns = [
+    #Admin
     path('admin/', admin.site.urls),
 
+    #Login handle
     path('', views.check_assitance, name='check'),
-    path('progress/', views.view_progress, name='progress'),
     path('login/', views.login_admin, name='login_admin'),
     path('logout/', views.logout_admin, name='logout_admin'),
-    path('panel/', views.load_panel, name='panel'),
+
+    #Progress
+    path('progress/<str:id>', views.view_progress, name='progress'),
+
+    #Platform management
+    path('admin_check/', views.admin_check, name='admin_check'),
     path('edit/', views.edit_student, name='edit'),
     path('save/', views.save_student_changes, name='save_changes'),
+    path('admin_check_in/', views.admin_check_in, name='admin_check_in'),
+    path('admin_check_out/', views.admin_check_out, name='admin_check_out'),
+    path('summary/', views.view_summary, name='summary')
 
 ]

@@ -6,24 +6,84 @@ Checar asistencia
 
 {% endblock %}
 
-{%block content %}
-<h1>Checar asistencia</h1>
-{% if error %}
-  <div class="alert alert-danger" role="alert">
-    {{error}}
-  </div>
-{% endif %}
+{% block styles %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'control/css/form.css' %}">
+{% endblock %}
 
-<form class="form-group" method="post">
-  {% csrf_token %}
-  <p><label for="id_name">Nombre:</label> <input type="text" name="name" maxlength="100" required="" class="form-control"></p>
-  <p><label for="id_description">Descripción:</label> <textarea name="description" cols="40" rows="10" class="form-control"></textarea></p>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" name="is_important" value="1">
-    <label class="form-check-label" for="exampleCheck1">Importante</label>
-  </div>
+
+{%block content %}
+<br>
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'success' %}
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>¡Santo guacamole!</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <br>
+    {% elif message.tags == 'error' %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>¡Santo guacamole!</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <br>
+    {% endif %}
+  {% endfor %}
+{%  endif %}
+
+<h1>Checar entrada</h1>
+<br>
+<div class="container register-form search-form">
   <br>
-  <button type="submit" name="button" class="btn btn-info">Crear</button>
-</form>
+    <form class="form" method="post" action="{% url 'admin_check_in' %}">
+      {% csrf_token %}
+        <div class="form-content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <p>ID del estudiante</p>
+              </div>
+              <div class="form-group">
+                <input type="text" name="id" class=form-control required>
+              </div>
+            </div>
+          </div>
+            <button type="submit" class="btn btn-dark">Checar</button>
+        </div>
+    </form>
+    <br>
+</div>
+<br>
+<hr>
+
+<br>
+<h1>Checar salida</h1>
+<br>
+<div class="container register-form search-form">
+  <br>
+    <form class="form" method="post" action="{% url 'admin_check_out' %}">
+      {% csrf_token %}
+        <div class="form-content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <p>ID del estudiante</p>
+              </div>
+              <div class="form-group">
+                <input type="text" name="id" class=form-control required>
+              </div>
+            </div>
+          </div>
+            <button type="submit" class="btn btn-dark">Checar</button>
+        </div>
+    </form>
+    <br>
+</div>
+<br>
 
 {% endblock %}
